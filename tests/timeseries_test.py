@@ -7,6 +7,7 @@ import pandas.util.testing as pdt
 
 from utils import timeseries
 
+
 class TestBase(unittest.TestCase):
 
     def setUp(self):
@@ -28,14 +29,14 @@ class TestBase(unittest.TestCase):
         pdt.assert_frame_equal(expected_result, actual_result)
 
     def test_df_to_json_timeseries(self):
-        
+
         expected_result = None
         with open(self.json_path) as json_file:
             expected_result = json.load(json_file)
 
         df = pd.read_csv(self.csv_path)
         actual_result = timeseries.df_to_json_timeseries(df)
-        
+
         self.assertEqual(len(expected_result), len(actual_result))
 
         # Assert that all columns from data frame are there

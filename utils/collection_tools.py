@@ -4,8 +4,10 @@ import itertools
 class NoFieldsError(Exception):
     pass
 
+
 class FormatError(Exception):
     pass
+
 
 def recursive_hierarchy(elements, fields):
     if not fields:
@@ -29,11 +31,12 @@ def recursive_hierarchy(elements, fields):
 
     return nodes
 
+
 def build_hierarchy(elements, fields):
     """Takes a list of dicts and groups them in an hierarchical way
     respecting the order provied by "fields".
     First field is used to group the first layer.
-    
+
     :param elements: list of JSON objects
     :param fields: list of fields to use as grouping keys. Order matters
     :return: a JSON list with the format [
